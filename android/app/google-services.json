@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "37061552960",
+    "project_id": "dnd-companion-a036d",
+    "storage_bucket": "dnd-companion-a036d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37061552960:android:459c17992d1d5df1b368a5",
+        "android_client_info": {
+          "package_name": "com.example.dziala"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDRUGvdiENnQTfoh03PyN_xT2-60Aot0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
