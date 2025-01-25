@@ -1,7 +1,10 @@
+import 'package:dziala/main.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import './spell_slot_screen.dart';
 import './dice_screen.dart';
 import './spell_search_screen.dart';
+import './login_screen.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -18,13 +21,39 @@ class _MainScreenState extends State<MainScreen> {
     SpellSlotScreen(), // Ekran slotów czarów
   ];
 
+  Future<void> logout(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => AuthWrapper()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('D&D Companion'), // Tytuł aplikacji
       ),
-      body: _screens[_currentIndex], // Wyświetla bieżący ekran
+      body: _screens[_currentIndex],
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('D&D Companion'),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+            ),
+            ListTile(
+              title: Text('logout'),
+              onTap: () async {
+                await logout(context); // Wylogowanie użytkownika
+              },
+            ),
+          ],
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) {

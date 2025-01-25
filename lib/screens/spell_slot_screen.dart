@@ -87,7 +87,7 @@ class _SpellSlotScreenState extends State<SpellSlotScreen> {
           ),
           ElevatedButton(
             onPressed: () {
-              spellSlotProvider.resetSpellSlots();
+              spellSlotProvider.resetSpellSlots(selectedLevel);
             },
             child: Text('Long Rest'),
           ),

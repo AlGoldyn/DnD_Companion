@@ -13,6 +13,7 @@ class SpellSlotProvider with ChangeNotifier {
   String _selectedClass = 'Wizard';
   int _selectedLevel = 1;
   Map<int, int> _spellSlots = {};
+  Map<int, int> initialSpellSlots = {};
 
   String get selectedClass => _selectedClass;
   int get selectedLevel => _selectedLevel;
@@ -37,6 +38,8 @@ class SpellSlotProvider with ChangeNotifier {
 
 void changeClass(String newClass) {
   _selectedClass = newClass;
+  _spellSlots = Map.from(spellSlotData[newClass]!);
+  initialSpellSlots = Map.from(spellSlotData[newClass]!);
   loadSpellSlots(_selectedLevel); // Użyj aktualnego poziomu
 }
 
@@ -52,8 +55,8 @@ void changeLevel(int newLevel) {
     }
   }
 
-  void resetSpellSlots() {
-    _spellSlots = Map.from(spellSlotData[_selectedClass] ?? {});
+  void resetSpellSlots(int level) {
+    loadSpellSlots(level);
     notifyListeners();
   }
 }
