@@ -22,8 +22,12 @@ class _MainScreenState extends State<MainScreen> {
 
   Future<void> logout(BuildContext context) async {
     await FirebaseAuth.instance.signOut();
+     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    content: Text("Wylogowano!"),
+  ));
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (context) => AuthWrapper()),
+     
     );
   }
 
