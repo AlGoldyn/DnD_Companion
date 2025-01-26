@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import './spell_slot_screen.dart';
 import './dice_screen.dart';
 import './spell_search_screen.dart';
-import './login_screen.dart';
 
 class MainScreen extends StatefulWidget {
   @override
